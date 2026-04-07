@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .test-case {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .valid { background-color: #d4edda; }
+        .invalid { background-color: #f8d7da; }
+    </style>
+</head>
+<body>
+    <h1>Email Validation Test Cases</h1>
+    <p><strong>Required Format:</strong> text@xxx.xx or text@xxx.xxx</p>
+    <p>(Exactly 3 letters between @ and ., 2-3 letters after .)</p>
+    
+    <h2>Test Cases:</h2>
+    <div id="results"></div>
+
+    <script>
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z]{3}\.[a-zA-Z]{2,3}$/;
+        
+        const testCases = [
+            { email: 'user@abc.com', expected: true },
+            { email: 'test@xyz.in', expected: true },
+            { email: 'name@def.org', expected: true },
+            { email: 'john.doe@ghi.co', expected: true },
+            { email: 'test123@pqr.com', expected: true },
+            { email: 'test@ab.com', expected: false, reason: 'Only 2 letters between @ and .' },
+            { email: 'test@abcd.com', expected: false, reason: '4 letters between @ and .' },
+            { email: 'test@a1c.com', expected: false, reason: 'Has number between @ and .' },
+            { email: 'test@abc.comm', expected: false, reason: '4 letters after .' },
+            { email: 'test@abc.c', expected: false, reason: 'Only 1 letter after .' },
+        ];
+        
+        const resultsDiv = document.getElementById('results');
+        
+        testCases.forEach(test => {
+            const isValid = emailRegex.test(test.email);
+            const passed = isValid === test.expected;
+            
+            const div = document.createElement('div');
+            div.className = 'test-case ' + (passed ? 'valid' : 'invalid');
+            div.innerHTML = `
+                <strong>${test.email}</strong><br>
+                Expected: ${test.expected ? '✓ Valid' : '✗ Invalid'}
+                ${test.reason ? ` (${test.reason})` : ''}<br>
+                Result: ${isValid ? '✓ Valid' : '✗ Invalid'} - 
+                <strong>${passed ? 'PASS ✓' : 'FAIL ✗'}</strong>
+            `;
+            resultsDiv.appendChild(div);
+        });
+    </script>
+</body>
+</html>

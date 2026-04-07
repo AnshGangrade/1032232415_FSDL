@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img id="logo" src="https://via.placeholder.com/100x100/4CAF50/ffffff?text=SCET" alt="College Logo">
+            <h1 id="mainHeading">Student Registration Form</h1>
+            <p id="subtitle">School of Computer Engineering & Technology</p>
+        </div>
+
+        <form id="registrationForm" novalidate>
+            <div class="form-group">
+                <label for="username">Username <span class="required">*</span></label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username">
+                <span class="error" id="usernameError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="e.g., user@abc.com or test@xyz.in">
+                <span class="error" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number <span class="required">*</span></label>
+                <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter 10-digit phone number" maxlength="10">
+                <span class="error" id="phoneError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password <span class="required">*</span></label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter password">
+                <span class="error" id="passwordError"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password <span class="required">*</span></label>
+                <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm your password">
+                <span class="error" id="confirmPasswordError"></span>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" id="submitBtn" class="btn btn-primary">Submit Registration</button>
+                <button type="reset" id="resetBtn" class="btn btn-secondary">Reset Form</button>
+                <button type="button" id="changeLogo" class="btn btn-info">Change Logo</button>
+            </div>
+        </form>
+
+        <div id="messageBox" class="message-box"></div>
+
+        <!-- DOM Manipulation Section -->
+        <div class="dom-section">
+            <h2>DOM Manipulation Demo</h2>
+            <div id="dynamicContent">
+                <p class="demo-text">This is a demonstration paragraph.</p>
+                <p class="demo-text">Another paragraph for manipulation.</p>
+            </div>
+            <div class="dom-buttons">
+                <button id="changeTextBtn" class="btn btn-small">Change Text</button>
+                <button id="changeColorBtn" class="btn btn-small">Change Color</button>
+                <button id="addNodeBtn" class="btn btn-small">Add Node</button>
+                <button id="deleteNodeBtn" class="btn btn-small">Delete Node</button>
+                <button id="changePositionBtn" class="btn btn-small">Move Element</button>
+            </div>
+        </div>
+
+        <!-- jQuery Demo Section -->
+        <div class="jquery-section">
+            <h2>jQuery Operations Demo</h2>
+            <button id="jqueryBtn" class="btn btn-jquery">Click Me (jQuery)</button>
+            <div id="jqueryDemo" class="jquery-demo-box">
+                <p>jQuery demonstration area</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include external JavaScript files -->
+    <script src="validation.js"></script>
+    <script src="dom-manipulation.js"></script>
+    <script src="jquery-operations.js"></script>
+</body>
+</html>
